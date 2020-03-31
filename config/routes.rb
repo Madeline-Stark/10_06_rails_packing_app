@@ -6,5 +6,12 @@ Rails.application.routes.draw do
   # get '/items/:id/edit', to: 'items#edit', as: "edit_item"
   resources :items
   resources :lists
+  resources :users, only: [:new, :create]
+  # get '/signup', to: "users#new", as: "signup"
+  # post '/signup', to: "users#create"
+  get '/login', to: "sessions#new", as: "login"
+  post '/login', to: "sessions#create"
+  post '/logout', to: "sessions#destroy"
+ 
 end
 
